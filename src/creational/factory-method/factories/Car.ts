@@ -1,7 +1,7 @@
-import Car from "../vehicles/Car";
+import Car from '../vehicles/Car';
 
 export default class CarFactory {
     generate(name: string) {
-        return new Car(name)
+        return new Car(name);
     }
 }

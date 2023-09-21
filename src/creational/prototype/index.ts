@@ -1,15 +1,15 @@
-import Address from "./prototypes/Address"
-import Person from "./prototypes/Person"
+import Address from './prototypes/Address';
+import Person from './prototypes/Person';
 
-const gustavo = new Person("Gustavo", "123")
+const gustavo = new Person('Gustavo', '123');
 
-const ny = new Address('ny')
-const houston = new Address('houston')
+const ny = new Address('ny');
+const houston = new Address('houston');
 
-gustavo.addAddress(ny)
-gustavo.addAddress(houston)
+gustavo.addAddress(ny);
+gustavo.addAddress(houston);
 
-const steve = gustavo.clone()
-steve.name = "steve"
+const steve = gustavo.clone();
+steve.name = 'steve';
 
-console.log(gustavo, steve)
+console.log(gustavo, steve);

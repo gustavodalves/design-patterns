@@ -6,6 +6,6 @@ export class Phone {
     ) {}
 
     getDescription() {
-        return `MODEL: ${this.model} BATTERY: ${this.battery} BODY: ${this.body}`
+        return `MODEL: ${this.model} BATTERY: ${this.battery} BODY: ${this.body}`;
     }
 }

@@ -1,4 +1,4 @@
-import Prototype from "./Protocol";
+import Prototype from './Protocol';
 
 export default class Address implements Prototype {
     constructor(
@@ -6,6 +6,6 @@ export default class Address implements Prototype {
     ) {}
 
     clone(): this {
-        return Object.create(this)
+        return Object.create(this);
     }
 }

@@ -1,4 +1,4 @@
-import Vechile from "./Protocol";
+import Vechile from './Protocol';
 
 export default class Bike implements Vechile {
     constructor(

@@ -5,6 +5,6 @@ export default abstract class Employee {
     ) {}
 
     getLevel () {
-        return this.level
+        return this.level;
     }
 }

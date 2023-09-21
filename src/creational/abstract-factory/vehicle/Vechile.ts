@@ -1,4 +1,4 @@
-import Employee from "../employee/Employee";
+import Employee from '../employee/Employee';
 
 export default abstract class Vehicle {
     constructor(
@@ -7,6 +7,6 @@ export default abstract class Vehicle {
     ) {}
 
     getLevel () {
-        return this.level
+        return this.level;
     }
 }

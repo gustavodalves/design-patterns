@@ -1,13 +1,13 @@
-import HighEmployee from "../employee/HighEmployee";
-import Limousine from "../vehicle/Limousine";
-import CreateVehicleEmployeeFactory from "./Protocol";
+import HighEmployee from '../employee/HighEmployee';
+import Limousine from '../vehicle/Limousine';
+import CreateVehicleEmployeeFactory from './Protocol';
 
 export default class HighLevelCreateVehicleEmployeeFactory implements CreateVehicleEmployeeFactory {
     createVehicle(employeeName: string) {
-        return new Limousine(this.createEmployee(employeeName))
+        return new Limousine(this.createEmployee(employeeName));
     }
 
     createEmployee(name: string) {
-        return new HighEmployee(name)
+        return new HighEmployee(name);
     }
 }
