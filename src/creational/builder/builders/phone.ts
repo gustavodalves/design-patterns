@@ -1,7 +1,6 @@
-import { IPhoneBuilder } from "../interfaces/builder/phone";
 import { Phone } from "../models/phone";
 
-export class PhoneBuilder implements IPhoneBuilder {
+export class PhoneBuilder {
     protected model: string = ''
     protected battery: number = 0
     protected body: string = ''

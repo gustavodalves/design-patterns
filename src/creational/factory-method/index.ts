@@ -1,9 +1,7 @@
-import { ConcreteVehicleFactory } from "./factories/vehicle";
+import BikeFactory from "./factories/Bike";
+import CarFactory from "./factories/Car";
 
-const factory = new ConcreteVehicleFactory()
+const bike = new BikeFactory().generate("bmx")
+const car = new CarFactory().generate("bmw x1")
 
-const bike = factory.getVehicle('bike')
-bike.drive(20)
-
-const truck = factory.getVehicle('truck')
-truck.drive(100)
+console.log(bike, car)

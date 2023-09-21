@@ -1,13 +1,6 @@
-import { GalaxyBuilder } from "./builders/galaxy";
-import { IPhonAppleBuilder } from "./builders/iPhone";
+import { PhoneBuilder } from "./builders/Phone";
 
-const iPhoneBuilder = new IPhonAppleBuilder()
-iPhoneBuilder.setBattery().setBody().setModel()
-const iPhone = iPhoneBuilder.build()
+const iPhone = new PhoneBuilder().setModel("iPhone 14 pro max").setBattery(2000).setBody("plastic").build()
+const galaxy = new PhoneBuilder().setModel("galaxy s23").setBattery(2000).setBody("titanium").build()
 
-const galaxyBuilder = new GalaxyBuilder()
-galaxyBuilder.setBattery().setBody().setModel()
-const galaxy = galaxyBuilder.build()
-
-console.log(iPhone.description())
-console.log(galaxy.description())
+console.log(iPhone.getDescription(), galaxy.getDescription())

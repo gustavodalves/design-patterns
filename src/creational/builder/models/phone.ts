@@ -5,7 +5,7 @@ export class Phone {
         public readonly body: string,
     ) {}
 
-    description() {
+    getDescription() {
         return `MODEL: ${this.model} BATTERY: ${this.battery} BODY: ${this.body}`
     }
 }
