@@ -1,5 +1,5 @@
 import ObjectProtected from './ObjectProtected';
-import ProtectionProxy from './protection';
+import ProtectionProxy from './Protection';
 
 const realObject = new ObjectProtected();
 const proxy = new ProtectionProxy(realObject);
