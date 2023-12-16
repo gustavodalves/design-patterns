@@ -1,35 +1,54 @@
-import { ShoppingOrderState } from './States/Contract';
-import { OrderPending } from './States/Pending';
+import PendingState from "./States/Pending";
+import { OrderState } from "./States/protocol";
 
-export class ShoppingOrder {
-    private state: ShoppingOrderState = new OrderPending(this);
+export enum OrderStatus {
+    Pending = "pending",
+    Approved = "approved",
+    Shipped = "shipped",
+    Recused = "recused",
+    Canceled = "canceled",
+}
 
-    getState(): ShoppingOrderState {
-        return this.state;
+class StateFactory {
+    static generate(status: string, order: Order) {
+        if(status === OrderStatus.Pending) return new PendingState(order)
+        return new PendingState(order)
+    }
+}
+
+export default class Order {
+    private state: OrderState
+
+    private constructor(
+        private value: number,
+        status: OrderStatus
+    ) {
+        this.state = (StateFactory.generate(status, this))
     }
 
-    setState(state: ShoppingOrderState): void {
-        this.state = state;
-        console.log(`O estado do pedido agora é ${this.getStateName()}`);
+    static create(value: number) {
+        return new Order(value, OrderStatus.Pending)
     }
 
-    getStateName(): string {
-        return this.state.getName();
+    setState(
+        orderState: OrderState
+    ) {
+        this.state = orderState
     }
 
-    approvePayment(): void {
-        this.state.approvePayment();
+    approvePayment() {
+        this.state.approvePayment()
     }
 
-    rejectPayment(): void {
-        this.state.rejectPayment();
+    ship() {
+        this.state.shipOrder()
     }
 
-    waitPayment(): void {
-        this.state.waitPayment();
+    refusePayment() {
+        this.state.refusePayment()
     }
 
-    shipOrder(): void {
-        this.state.shipOrder();
+    cancel() {
+        this.state.cancelOrder()
     }
 }

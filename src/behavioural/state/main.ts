@@ -1,9 +1,5 @@
-import { ShoppingOrder } from './Order';
+import Order from "./Order";
 
-const order = new ShoppingOrder();
-order.approvePayment();
-order.waitPayment();
-order.shipOrder();
-order.rejectPayment();
-order.approvePayment();
-order.shipOrder();
+const order = Order.create(900)
+order.approvePayment()
+order.ship()

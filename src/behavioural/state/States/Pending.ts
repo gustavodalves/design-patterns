@@ -1,30 +1,30 @@
-import { ShoppingOrder } from '../Order';
-import { OrderApproved } from './Approved';
-import { ShoppingOrderState } from './Contract';
-import { OrderRejected } from './Reject';
+import Order from "../Order";
+import ApprovedPaymentState from "./ApprovedPayment";
+import CanceledState from "./Canceled";
+import RefusedState from "./RefusePayment";
+import { OrderState } from "./protocol";
 
-export class OrderPending implements ShoppingOrderState {
-    private name = 'OrderPending';
-
-    constructor(private order: ShoppingOrder) {}
-
-    getName(): string {
-        return this.name;
-    }
+export default class PendingState implements OrderState {
+    constructor(
+        private order: Order
+    ) {}
 
     approvePayment(): void {
-        this.order.setState(new OrderApproved(this.order));
+        console.log("Payment approved. Moving to the approved state.");
+        this.order.setState(new ApprovedPaymentState(this.order));
     }
 
-    rejectPayment(): void {
-        this.order.setState(new OrderRejected(this.order));
+    cancelOrder(): void {
+        console.log("Order canceled.");
+        this.order.setState(new CanceledState(this.order));
     }
 
-    waitPayment(): void {
-        console.log('O pedido já está no estado pagamento pendente.');
+    refusePayment(): void {
+        console.log("Order Refused")
+        this.order.setState(new RefusedState(this.order))
     }
 
     shipOrder(): void {
-        console.log('Não posso enviar o pedido com pagamento pendente.');
+        throw new Error(`Cannot ship order in the pending state.`);
     }
 }
